@@ -39,9 +39,9 @@ function HeroContent() {
           </h1>
 
           <p className="text-lg md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto font-medium">
-            막혔으면? 뚫어야죠. <br className="md:hidden" />
-            <strong>10초면 전화 연결됩니다.</strong> <br />
-            전화, 문자, 카톡으로 1분 안에 답변을 받아보세요.
+            최신장비들고 달려갑니다. <br className="md:hidden" />
+            <strong>10초면 전화 연결.</strong> <br />
+            전화, 문자 1분 안에 답변을 받아보세요.
           </p>
 
           {/* 실행 버튼들 */}
