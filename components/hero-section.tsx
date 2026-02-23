@@ -24,10 +24,10 @@ export default function HeroSection() {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-4 text-balance">
-            막힌 그 배관,
-            <br />
-            <span className="text-primary">뚫리면 결제</span>하세요!
+          <h1 className="text-4xl font-extrabold tracking-tight lg:text-6xl mb-6">
+            서울·경기 지역 답답한 배관,
+            <br className="hidden sm:inline" />
+            <span className="text-blue-600"> 빠르게 도착해서 해소</span>시켜드리겠습니다.
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty">
