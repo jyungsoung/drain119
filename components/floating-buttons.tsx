@@ -21,10 +21,10 @@ export default function FloatingButtons() {
         className="bg-kakao hover:bg-kakao/90 text-kakao-foreground rounded-full w-14 h-14 p-0 shadow-lg shadow-kakao/30"
       >
         <a
-          href="https://open.kakao.com/o/sEbfmt3h"
+          href="sms:0105-5776-5882"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="카카오톡 상담"
+          aria-label="문자 상담"
         >
           <MessageCircle className="w-6 h-6" />
         </a>
