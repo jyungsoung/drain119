@@ -1,6 +1,6 @@
 "use client";
 
-import { Phone, MessageCircle, Clock, Shield, Wrench, MessageSquare } from "lucide-react";
+import { Phone, MessageCircle, Clock, Shield, Wrench, MessageSquare, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
@@ -8,19 +8,17 @@ import Link from "next/link";
 
 function HeroContent() {
   const searchParams = useSearchParams();
-  // 주소창 파라미터를 읽어오고, 없을 경우 '서울·경기'를 기본값으로 합니다.
   const region = searchParams.get("region") || "서울·경기";
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 md:pt-20 overflow-hidden">
-      {/* 대표님이 원래 쓰시던 배경 이미지 방식 그대로 복구했습니다. */}
+      {/* 배경 이미지 */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url('/plumber-fixing-pipe-in-dark-background-professiona.jpg')`,
         }}
       />
-      {/* 배경을 적당히 어둡게 만들어 글자를 돋보이게 하는 오버레이 */}
       <div className="absolute inset-0 bg-background/85" />
 
       <div className="relative container mx-auto px-4 py-12 md:py-20">
@@ -31,7 +29,7 @@ function HeroContent() {
             24시간 365일 긴급 출동
           </div>
 
-          {/* 메인 슬로건: 지역명 연동 기능 포함 */}
+          {/* 메인 슬로건 */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1]">
             <span className="text-blue-600">{region}</span> 지역 답답한 배관,
             <br className="hidden md:inline" />
@@ -44,29 +42,34 @@ function HeroContent() {
             전화, 문자 1분 안에 답변을 받아보세요.
           </p>
 
-          {/* 실행 버튼들 */}
+          {/* 실행 버튼들 (수정됨) */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+            {/* 1. 전화연결 (빨간색) */}
             <Button size="lg" className="h-16 px-10 text-xl gap-2 bg-red-600 hover:bg-red-700 w-full sm:w-auto animate-bounce" asChild>
               <a href="tel:1668-1321">
                 <Phone className="h-6 w-6" />
                 전화 연결
               </a>
             </Button>
+
+            {/* 2. 문자상담 (노란색/카카오톤) */}
             <Button size="lg" variant="outline" className="h-16 px-10 text-xl gap-2 border-yellow-400 bg-yellow-400 text-black hover:bg-yellow-500 w-full sm:w-auto" asChild>
               <a href="sms:1668-1321">
                 <MessageSquare className="h-6 w-6" />
                 문자 상담
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="h-16 px-10 text-xl gap-2 bg-white/10 backdrop-blur-md w-full sm:w-auto" asChild>
-              <Link href="https://pf.kakao.com/_Example" target="_blank">
-                <MessageCircle className="h-6 w-6 text-yellow-400" />
-                카톡 상담
+
+            {/* 3. 시공사례 (네이버 그린색) */}
+            <Button size="lg" variant="outline" className="h-16 px-10 text-xl gap-2 border-[#03C75A] bg-[#03C75A] text-white hover:bg-[#02b351] w-full sm:w-auto" asChild>
+              <Link href="/blog"> {/* 시공사례 페이지나 블로그 링크로 연결하세요 */}
+                <BookOpen className="h-6 w-6" />
+                시공사례
               </Link>
             </Button>
           </div>
 
-          {/* 신뢰 포인트 아이콘 섹션 */}
+          {/* 신뢰 포인트 섹션 */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left max-w-3xl mx-auto border-t border-border/50 pt-10">
             <div className="flex items-center gap-3">
               <div className="bg-blue-100 p-2 rounded-full">
@@ -102,7 +105,6 @@ function HeroContent() {
   );
 }
 
-// 빌드 에러 방지를 위한 Suspense 처리
 export default function HeroSection() {
   return (
     <Suspense fallback={<div className="min-h-screen flex items-center justify-center">불러오는 중...</div>}>
