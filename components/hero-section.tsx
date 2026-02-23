@@ -54,7 +54,7 @@ function HeroContent() {
 
             {/* 2. 문자상담 (노란색/카카오톤) */}
             <Button size="lg" variant="outline" className="h-16 px-10 text-xl gap-2 border-yellow-400 bg-yellow-400 text-black hover:bg-yellow-500 w-full sm:w-auto" asChild>
-              <a href="sms:1668-1321">
+              <a href="sms:0105-5776-5882">
                 <MessageSquare className="h-6 w-6" />
                 문자 상담
               </a>
@@ -62,7 +62,7 @@ function HeroContent() {
 
             {/* 3. 시공사례 (네이버 그린색) */}
             <Button size="lg" variant="outline" className="h-16 px-10 text-xl gap-2 border-[#03C75A] bg-[#03C75A] text-white hover:bg-[#02b351] w-full sm:w-auto" asChild>
-              <Link href="/blog"> {/* 시공사례 페이지나 블로그 링크로 연결하세요 */}
+              <Link href="/blog.naver.com/carrotpipe"> {/* 시공사례 페이지나 블로그 링크로 연결하세요 */}
                 <BookOpen className="h-6 w-6" />
                 시공사례
               </Link>
