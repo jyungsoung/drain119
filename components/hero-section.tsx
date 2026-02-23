@@ -35,7 +35,7 @@ function HeroContent() {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1]">
             <span className="text-blue-600">{region}</span> 지역 답답한 배관,
             <br className="hidden md:inline" />
-            <span className="text-primary"> 빠르게 도착해서 해소</span>시켜드립니다!
+            <span className="text-primary"> 빠르게 </span>뚫어 드립니다!
           </h1>
 
           <p className="text-lg md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto font-medium">
