@@ -17,6 +17,8 @@ export default function Footer() {
               하수구 막힘, 변기 막힘, 싱크대 막힘
               <br />
               24시간 긴급 출동 전문 업체
+              <br />
+              150-65-00639
             </p>
           </div>
 
@@ -52,7 +54,7 @@ export default function Footer() {
               </div>
               <div className="flex items-start gap-2 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary mt-0.5" />
-                서울, 경기, 인천 전 지역 출장
+                서울, 경기, 전 지역 출장
               </div>
             </div>
           </div>
