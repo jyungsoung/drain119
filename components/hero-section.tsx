@@ -62,7 +62,7 @@ function HeroContent() {
 
             {/* 3. 시공사례 (네이버 그린색) */}
             <Button size="lg" variant="outline" className="h-16 px-10 text-xl gap-2 border-[#03C75A] bg-[#03C75A] text-white hover:bg-[#02b351] w-full sm:w-auto" asChild>
-              <Link href="blog.naver.com/carrotpipe"> {/* 시공사례 페이지나 블로그 링크로 연결하세요 */}
+              <Link href="https://blog.naver.com/carrotpipe"> {/* 시공사례 페이지나 블로그 링크로 연결하세요 */}
                 <BookOpen className="h-6 w-6" />
                 시공사례
               </Link>
