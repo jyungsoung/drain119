@@ -38,27 +38,10 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
         />
-        {/* 보라웨어 부정클릭 방지: 인식률을 높이기 위해 표준 스크립트 방식으로 삽입 */}
-        <script type="text/javascript" dangerouslySetInnerHTML={{
-          __html: `
-            var protect_id = 'j489';
-          `
-        }} />
-        <script type="text/javascript" src="//script.boraware.kr/protect_script_v2.js" async />
       </head>
       <body className="antialiased">
         {children}
         <Analytics />
-        
-        {/* noscript 로그 기록 */}
-        <noscript>
-          <img 
-            src="//script.boraware.kr/protect_nbora.php?protect_id=j489" 
-            style={{ display: 'none', width: 0, height: 0 }} 
-            border="0" 
-            alt="boraware_log"
-          />
-        </noscript>
       </body>
     </html>
   )
