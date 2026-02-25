@@ -1,14 +1,48 @@
 "use client";
 
+import { useEffect } from "react"; // 스크립트 실행을 위해 추가
 import { Phone, MessageCircle, Clock, Shield, Wrench, MessageSquare, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import Link from "next/link";
 
+// 전역 윈도우 객체에 protect_id를 넣기 위한 설정
+declare global {
+  interface Window {
+    protect_id: string;
+  }
+}
+
 function HeroContent() {
   const searchParams = useSearchParams();
   const region = searchParams.get("region") || "서울·경기";
+
+  // 화면이 로드될 때 보라웨어 스크립트를 강제로 주입합니다.
+  useEffect(() => {
+    // 1. ID 설정
+    window.protect_id = 'j489';
+
+    // 2. 메인 분석 스크립트 생성 및 삽입
+    const script = document.createElement("script");
+    script.src = "//script.boraware.kr/protect_script_v2.js";
+    script.async = true;
+    script.type = "text/javascript";
+    document.head.appendChild(script);
+
+    // 3. noscript용 이미지 로그 생성 (이미지 객체로 실행)
+    const noscriptImg = new Image();
+    noscriptImg.src = "//script.boraware.kr/protect_nbora.php?protect_id=j489";
+    noscriptImg.style.display = "none";
+    document.body.appendChild(noscriptImg);
+
+    return () => {
+      // 컴포넌트가 사라질 때 스크립트 정리 (선택 사항)
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 md:pt-20 overflow-hidden">
@@ -42,7 +76,7 @@ function HeroContent() {
             전화, 문자 1분 안에 답변을 받아보세요.
           </p>
 
-          {/* 실행 버튼들 (수정됨) */}
+          {/* 실행 버튼들 */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             {/* 1. 전화연결 (빨간색) */}
             <Button size="lg" className="h-16 px-10 text-xl gap-2 bg-red-600 hover:bg-red-700 w-full sm:w-auto animate-bounce" asChild>
@@ -62,10 +96,10 @@ function HeroContent() {
 
             {/* 3. 시공사례 (네이버 그린색) */}
             <Button size="lg" variant="outline" className="h-16 px-10 text-xl gap-2 border-[#03C75A] bg-[#03C75A] text-white hover:bg-[#02b351] w-full sm:w-auto" asChild>
-              <Link href="https://blog.naver.com/carrotpipe"> {/* 시공사례 페이지나 블로그 링크로 연결하세요 */}
+              <a href="https://blog.naver.com/carrotpipe" target="_blank" rel="noopener noreferrer">
                 <BookOpen className="h-6 w-6" />
                 시공사례
-              </Link>
+              </a>
             </Button>
           </div>
 
