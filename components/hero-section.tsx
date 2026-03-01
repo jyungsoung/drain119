@@ -78,20 +78,20 @@ function HeroContent() {
 
           {/* 실행 버튼들 */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            {/* 1. 전화연결 (빨간색) */}
+            {/* 1. 전화연결 (빨간색 - 추적용 페이지로 링크 변경) */}
             <Button size="lg" className="h-16 px-10 text-xl gap-2 bg-red-600 hover:bg-red-700 w-full sm:w-auto animate-bounce" asChild>
-              <a href="tel:1668-1321">
+              <Link href="/call-complete">
                 <Phone className="h-6 w-6" />
                 전화 연결
-              </a>
+              </Link>
             </Button>
 
-            {/* 2. 문자상담 (노란색/카카오톤) */}
+            {/* 2. 문자상담 (노란색/카카오톤 - 추적용 페이지로 링크 변경) */}
             <Button size="lg" variant="outline" className="h-16 px-10 text-xl gap-2 border-yellow-400 bg-yellow-400 text-black hover:bg-yellow-500 w-full sm:w-auto" asChild>
-              <a href="sms:0105-5776-5882">
+              <Link href="/sms-complete">
                 <MessageSquare className="h-6 w-6" />
                 문자 상담
-              </a>
+              </Link>
             </Button>
 
             {/* 3. 시공사례 (네이버 그린색) */}
