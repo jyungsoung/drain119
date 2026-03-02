@@ -38,14 +38,16 @@ export default function RootLayout({
         {/* 구글 서치콘솔 소유권 확인 태그 */}
         <meta name="google-site-verification" content="Koq3sahqSt2uhpYqZ5hfSHFcJWlIO3ogL-KCYzoKHuw" />
 
-        {/* 구글 애널리틱스 (GA4) 직접 설치 - 대표님 전용 CCTV */}
+        {/* 구글 애널리틱스(GA4) + 구글 광고(Ads) 통합 설치 */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-BB5LGFSVRJ" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-BB5LGFSVRJ');
+            
+            gtag('config', 'G-BB5LGFSVRJ'); /* 애널리틱스 CCTV */
+            gtag('config', 'AW-17975405878'); /* 구글 광고(Ads) 추적기 추가완료! */
           `}
         </Script>
 
