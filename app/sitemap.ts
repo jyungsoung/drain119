@@ -4,7 +4,7 @@ import { MetadataRoute } from "next";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://yourdomain.com'; // 실제 도메인으로 변경
+  const baseUrl = 'https://drain119.co.kr'; // 실제 도메인으로 변경
 
   return [
     {
