@@ -35,6 +35,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        {/* 구글 서치콘솔 소유권 확인 태그 (이 부분 딱 한 줄만 추가되었습니다!) */}
+        <meta name="google-site-verification" content="Koq3sahqSt2uhpYqZ5hfSHFcJWlIO3ogL-KCYzoKHuw" />
+
         {/* Google Tag Manager (Head) */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
