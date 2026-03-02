@@ -2,7 +2,7 @@ import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
-import Script from "next/script" // GTM 삽입을 위해 추가
+import Script from "next/script" 
 
 export const metadata: Metadata = {
   title: "응급배관119 | 24시간 하수구 막힘 긴급 출동",
@@ -35,19 +35,21 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
-        {/* 구글 서치콘솔 소유권 확인 태그 (이 부분 딱 한 줄만 추가되었습니다!) */}
+        {/* 구글 서치콘솔 소유권 확인 태그 */}
         <meta name="google-site-verification" content="Koq3sahqSt2uhpYqZ5hfSHFcJWlIO3ogL-KCYzoKHuw" />
 
-        {/* Google Tag Manager (Head) */}
-        <Script id="google-tag-manager" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-KGXL493Q');`}
+        {/* 구글 애널리틱스 (GA4) 직접 설치 - 대표님 전용 CCTV */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-BB5LGFSVRJ" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-BB5LGFSVRJ');
+          `}
         </Script>
 
-        {/* 네이버 애널리틱스 (추가된 부분) */}
+        {/* 네이버 애널리틱스 */}
         <Script src="//wcs.pstatic.net/wcslog.js" strategy="afterInteractive" />
         <Script id="naver-analytics" strategy="afterInteractive">
           {`
@@ -65,16 +67,6 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe 
-            src="https://www.googletagmanager.com/ns.html?id=GTM-KGXL493Q"
-            height="0" 
-            width="0" 
-            style={{ display: 'none', visibility: 'hidden' }}
-          ></iframe>
-        </noscript>
-
         {children}
         <Analytics />
       </body>
