@@ -43,6 +43,18 @@ export default function RootLayout({
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-KGXL493Q');`}
         </Script>
+
+        {/* 네이버 애널리틱스 (추가된 부분) */}
+        <Script src="//wcs.pstatic.net/wcslog.js" strategy="afterInteractive" />
+        <Script id="naver-analytics" strategy="afterInteractive">
+          {`
+            if(!wcs_add) var wcs_add = {};
+            wcs_add["wa"] = "182e31a9af9c790";
+            if(window.wcs) {
+              wcs_do();
+            }
+          `}
+        </Script>
         
         <link
           rel="stylesheet"
