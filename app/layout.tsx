@@ -27,6 +27,29 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
+// SEO를 위한 서울/경기권 스키마 데이터
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "PlumbingService",
+  "name": "응급배관119",
+  "image": "https://drain119.co.kr/plumber-fixing-pipe-in-dark-background-professiona.jpg",
+  "@id": "https://drain119.co.kr",
+  "url": "https://drain119.co.kr",
+  "telephone": "010-XXXX-XXXX", // 사장님 번호로 수정하세요
+  "priceRange": "₩",
+  "description": "서울 및 경기 전 지역 24시간 긴급 출동! 하수구, 변기, 싱크대 막힘 해결 전문",
+  "areaServed": [
+    { "@type": "State", "name": "Seoul" },
+    { "@type": "State", "name": "Gyeonggi-do" }
+  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
+  }
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -46,8 +69,8 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             
-            gtag('config', 'G-BB5LGFSVRJ'); /* 애널리틱스 CCTV */
-            gtag('config', 'AW-17975405878'); /* 구글 광고(Ads) 추적기 추가완료! */
+            gtag('config', 'G-BB5LGFSVRJ');
+            gtag('config', 'AW-17975405878');
           `}
         </Script>
 
@@ -62,6 +85,22 @@ export default function RootLayout({
             }
           `}
         </Script>
+
+        {/* 당근마켓 픽셀 코드 추가 */}
+        <Script src="https://karrot-pixel.business.daangn.com/karrot-pixel.js" strategy="afterInteractive" />
+        <Script id="karrot-pixel-init" strategy="afterInteractive">
+          {`
+            window.karrotPixel = window.karrotPixel || [];
+            window.karrotPixel.init('1772547415530815001');
+            window.karrotPixel.track('ViewPage');
+          `}
+        </Script>
+
+        {/* 구글 검색용 스키마 데이터 삽입 */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         
         <link
           rel="stylesheet"
