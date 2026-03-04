@@ -10,7 +10,7 @@ export default function CallCompletePage() {
     // ⭐ 추가된 부분: 전화가 걸리기 직전에 구글 광고로 '전환 완료' 신호 쏘기 ⭐
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'conversion', {
-        'send_to': 'AW-17975405878/Om4jCMi8wYIcELbaq_tC',
+        'send_to': 'AW-17975405878/-IN_CJvOvIIcELbaq_tC',
         'value': 1.0,
         'currency': 'KRW'
       });
